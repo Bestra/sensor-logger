@@ -6,8 +6,9 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mongoid', '~> 3.1.3'
+gem 'mongoid_rails_migrations', '~> 1.0.0'
 
-
+gem 'devise' , '~> 2.2.4'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,6 +22,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.13.0'
+  gem 'rspec-given'
+  gem 'spork-rails', '~> 3.2.1'
+  gem "factory_girl_rails", "~> 4.2.1"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
