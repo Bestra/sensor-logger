@@ -21,6 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'haml-rails'
 gem 'jquery-rails'
 
 gem 'rspec-rails', '~> 2.13.0', group: [:development, :test]
