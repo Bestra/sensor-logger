@@ -28,6 +28,7 @@ group  :test do
   gem 'rspec-given'
   gem 'spork-rails', '~> 3.2.1'
   gem "factory_girl_rails", "~> 4.2.1"
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
