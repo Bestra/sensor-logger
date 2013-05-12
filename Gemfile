@@ -23,6 +23,7 @@ end
 
 gem 'haml-rails'
 gem 'jquery-rails'
+gem "bootstrap-sass", "~> 2.3.1.0"
 
 gem 'rspec-rails', '~> 2.13.0', group: [:development, :test]
 group  :test do
