@@ -1,7 +1,7 @@
 CsvLogger::Application.routes.draw do
   get "home/index"
 
-  devise_for :users
+  devise_for :users #, :token_authentication_key => 'authentication_key'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
