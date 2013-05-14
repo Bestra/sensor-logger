@@ -1,0 +1,18 @@
+%p Your api key is #{current_user.authentication_token || 'currently unset'}
+= link_to 'Generate a new api key', tokens_path, method: :post
+%h2 Your projects
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= link_to 'Show', project
+      %td= link_to 'Edit', edit_project_path(project)
+      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Project', new_project_path
