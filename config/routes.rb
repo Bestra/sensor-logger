@@ -1,4 +1,7 @@
 CsvLogger::Application.routes.draw do
+  resources :sensors
+
+
   resources :projects do
     resources :sensors
   end
