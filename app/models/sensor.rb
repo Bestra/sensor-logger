@@ -1,6 +1,6 @@
 class Sensor
   include Mongoid::Document
-  belongs_to :project
+  embedded_in :project
   has_many :sensor_readings
 
   field :name

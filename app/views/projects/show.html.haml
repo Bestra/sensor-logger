@@ -1,5 +1,22 @@
 %p#notice= notice
+%h1= @project.name
 
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @sensors.each do |sensor|
+    %tr
+      %td= sensor.project_index
+      %td= sensor.name
+      %td= link_to 'Edit', '#'
+      %td= link_to 'Destroy', sensor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sensor', new_sensor_path
 
 = link_to 'Edit', edit_project_path(@project)
 \|
