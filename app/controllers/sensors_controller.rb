@@ -36,17 +36,20 @@ class SensorsController < ApplicationController
 
   # GET /sensors/1/edit
   def edit
-    @sensor = Sensor.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @sensor = @project.sensors.find(params[:id])
   end
 
   # POST /sensors
   # POST /sensors.json
   def create
-    @sensor = Sensor.new(params[:sensor])
+    @project = Project.find(params[:sensor][:project_id])
+    @sensor =  Sensor.new(params[:sensor])
+    @project.sensors << @sensor
 
     respond_to do |format|
       if @sensor.save
-        format.html { redirect_to @sensor, notice: 'Sensor was successfully created.' }
+        format.html { redirect_to @project, notice: 'Sensor was successfully created.' }
         format.json { render json: @sensor, status: :created, location: @sensor }
       else
         format.html { render action: "new" }
@@ -58,11 +61,12 @@ class SensorsController < ApplicationController
   # PUT /sensors/1
   # PUT /sensors/1.json
   def update
-    @sensor = Sensor.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @sensor = @project.sensors.find(params[:id])
 
     respond_to do |format|
       if @sensor.update_attributes(params[:sensor])
-        format.html { redirect_to @sensor, notice: 'Sensor was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Sensor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,11 +78,13 @@ class SensorsController < ApplicationController
   # DELETE /sensors/1
   # DELETE /sensors/1.json
   def destroy
-    @sensor = Sensor.find(params[:id])
-    @sensor.destroy
+    @project = Project.find(params[:project_id])
+    @sensor = @project.sensors.find(params[:id])
+    @sensor.delete
+    @project.save
 
     respond_to do |format|
-      format.html { redirect_to sensors_url }
+      format.html { redirect_to @project }
       format.json { head :no_content }
     end
   end
