@@ -1,10 +1,11 @@
 %p#notice= notice
 %h1= @project.name
+%h3= @project.description
 
-%table
+%table.table.table-bordered
   %tr
-    %th
-    %th
+    %th index #
+    %th Name
     %th
 
   - @sensors.each do |sensor|
@@ -16,7 +17,7 @@
 
 %br
 
-= link_to 'New Sensor', new_sensor_path
+= link_to 'New Sensor', new_project_sensor_path(@project.id)
 
 = link_to 'Edit', edit_project_path(@project)
 \|

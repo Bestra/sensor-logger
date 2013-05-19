@@ -1,6 +1,4 @@
 CsvLogger::Application.routes.draw do
-  resources :sensors
-
 
   resources :projects do
     resources :sensors
@@ -8,7 +6,6 @@ CsvLogger::Application.routes.draw do
 
   resources :tokens, only: [:create, :destroy]
 
-  get "home/index"
 
   devise_for :users #, :token_authentication_key => 'authentication_key'
 

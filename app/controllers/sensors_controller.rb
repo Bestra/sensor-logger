@@ -1,4 +1,5 @@
 class SensorsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /sensors
   # GET /sensors.json
   def index
@@ -25,6 +26,7 @@ class SensorsController < ApplicationController
   # GET /sensors/new.json
   def new
     @sensor = Sensor.new
+    @project = Project.find(params[:project_id])
 
     respond_to do |format|
       format.html # new.html.erb

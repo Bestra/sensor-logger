@@ -1,10 +1,14 @@
-= form_for @sensor do |f|
+= simple_form_for [@project, @sensor] do |f|
   - if @sensor.errors.any?
     #error_explanation
       %h2= "#{pluralize(@sensor.errors.count, "error")} prohibited this sensor from being saved:"
       %ul
         - @sensor.errors.full_messages.each do |msg|
           %li= msg
+
+  = f.input :name
+  = f.input :project_index
+  = f.hidden_field :project_id, value: @project.id
 
   .actions
     = f.submit 'Save'
