@@ -1,0 +1,4 @@
+describe SensorData do
+
+
+end

@@ -1,0 +1,4 @@
+class SensorData
+
+
+end

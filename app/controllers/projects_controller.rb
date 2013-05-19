@@ -82,13 +82,4 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def upload_data
-
-  end
-
-  def get_data
-
-  end
-
 end
