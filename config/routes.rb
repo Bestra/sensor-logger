@@ -6,6 +6,10 @@ CsvLogger::Application.routes.draw do
 
   resources :tokens, only: [:create, :destroy]
 
+  resource :readings, controller: 'sensor_readings', only: [:index, :create, :destroy]
+
+
+
 
   devise_for :users #, :token_authentication_key => 'authentication_key'
 
