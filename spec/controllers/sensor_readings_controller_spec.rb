@@ -30,7 +30,7 @@ describe SensorReadingsController do
           When { post :create, sensorReadings: new_request }
 
           Then do
-            project.reload.sensors.where(project_index: 1).should_not be_nil
+            project.reload.sensor(1).should_not be_nil
           end
 
           Then do
@@ -47,13 +47,13 @@ describe SensorReadingsController do
           Given(:posted_index) { existing_sensor.project_index }
           When { post :create, sensorReadings: new_request }
           Then do
-            binding.pry
-            Sensor.count.should == 1
-            project.reload.sensors.where(project_index: existing_sensor.project_index).name.should == existing_sensor.name
+            project.sensors.count.should == 1
+            project.sensor(existing_sensor.project_index).name.should == existing_sensor.name
           end
           Then do
             SensorReading.count.should == 2
             s = SensorReading.last
+            binding.pry
             s.should_not be_nil
             s.time.to_s.should == reading_time.to_s
             s.value.should == 1
