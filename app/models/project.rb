@@ -5,4 +5,8 @@ class Project
 
   field :name
   field :description
+
+  def find_or_create_sensor(index)
+    s = self.sensors.find_or_create_by(project_index: index)
+  end
 end
