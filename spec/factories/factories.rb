@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :user do
     email "user@example.com"
-
+    password "12password"
   end
 
   factory :sensor do
@@ -10,6 +10,8 @@ FactoryGirl.define do
   end
 
   factory :project do
+    name "A project"
+    description "Measure things"
 
   end
 
