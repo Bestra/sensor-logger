@@ -36,6 +36,8 @@ group  :test do
   gem 'spork-rails', '~> 3.2.1'
   gem "factory_girl_rails", "~> 4.2.1"
   gem 'database_cleaner'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 # To use ActiveModel has_secure_password
