@@ -5,9 +5,19 @@ class SensorReadingsController < ApplicationController
   # project: <id>, required
   # start_time: if null returns data starting at the first result
   # end_time: if null returns data until the current time
-  # sensors: if null returns data for all sensors
-  #
+  # sensors: if null returns data for all sensors in the project
+  # result_limit: the max total number of results required, if null returns them all
+  # result_type: 'json' for now, maybe 'zip' or something later
   def index
+    json_params = params['sensorReadingsQuery']
+    @project = Project.find json_params['project_id']
+    sensors = json_params['sensors']
+    start_time = json_params['start_time']
+    end_time = json_params['end_time']
+    result_limit = json_params['limit']
+    result_type = json_params['result_type']
+
+    query = SensorReadingQuery.new @project, sensors, start_time, end_time, result_limit, result_type
 
   end
 

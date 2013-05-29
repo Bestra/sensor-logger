@@ -13,4 +13,12 @@ class SensorReading
       end
     end
   end
+
+  def self.query_sensor(project, sensor_index, start_time, end_time, result_limit)
+
+  end
+
+  def self.query_sensor_readings(sensor_query)
+
+  end
 end
