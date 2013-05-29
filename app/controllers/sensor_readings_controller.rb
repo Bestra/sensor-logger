@@ -28,7 +28,7 @@ class SensorReadingsController < ApplicationController
     sensors = json_params['sensors']
     added_readings = {}
     sensors.each do |sensor_param|
-      sensor = Sensor.find_or_create @project, sensor_param['project_index']
+      sensor = @project.find_or_create_sensor sensor_param['project_index']
       added_readings[sensor.project_index] = SensorReading.add_readings sensor.id, sensor_param['readings']
     end
     render status: 200, json: added_readings
