@@ -18,6 +18,7 @@ class SensorReadingsController < ApplicationController
     result_type = json_params['result_type']
 
     query = SensorReadingQuery.new @project, sensors, start_time, end_time, result_limit, result_type
+    render json: query.result
 
   end
 
