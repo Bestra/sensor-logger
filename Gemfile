@@ -9,6 +9,9 @@ gem 'rails', '3.2.12'
 gem 'mongoid', '~> 3.1.3'
 gem 'mongoid_rails_migrations', '~> 1.0.0'
 
+#no more webrick
+gem 'thin'
+
 gem 'devise' , '~> 2.2.4'
 # Gems used only for assets and not required
 # in production environments by default.
