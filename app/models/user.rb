@@ -18,6 +18,15 @@ class User
   ## Rememberable
   field :remember_created_at, :type => Time
 
+  field :invite_code, type: String
+
+  validate :invite_code_is_correct
+
+  def invite_code_is_correct
+    unless invite_code == 'goinvo'
+      self.errors.add :invite_code, 'You need a valid invite code to sign up'
+    end
+  end
 
   ## Confirmable
   # field :confirmation_token,   :type => String
