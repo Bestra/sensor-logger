@@ -1,12 +1,13 @@
 CsvLogger::Application.routes.draw do
 
   resources :projects do
+    get 'data'
     resources :sensors
   end
 
   resources :tokens, only: [:create, :destroy]
 
-  resource :readings, controller: 'sensor_readings', only: [:index, :create, :destroy]
+  resource :readings, controller: 'sensor_readings', only: [:create, :destroy]
 
 
 

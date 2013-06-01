@@ -82,4 +82,23 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # returns the result of a query
+  # sensors: if null returns data for all sensors in the project
+  # start_time: if null returns data starting at the first result
+  # end_time: if null returns data until the current time
+  # result_limit: the max total number of results required, if null returns them all
+  # result_type: 'json' for now, maybe 'zip' or something later
+  def data
+    @project = Project.find params[:project_id]
+    sensors = params['sensors']
+    start_time = params['start_time']
+    end_time = params['end_time']
+    result_limit = params['limit']
+    result_type = params['result_type']
+
+    query = SensorReadingQuery.new @project, sensor_indices: sensors, start_time: start_time, end_time: end_time, result_limit: result_limit, result_type: result_type
+    render json: query.result
+
+  end
 end
