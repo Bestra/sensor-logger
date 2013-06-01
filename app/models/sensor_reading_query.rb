@@ -37,7 +37,7 @@ class SensorReadingQuery
     self.sensors.each do |sensor|
       query = time_query(SensorReading.where(sensor_id: sensor)).order_by(time: "asc").limit(self.result_limit).only(:time, :value)
       sensor_results[sensor.project_index] = {}
-      sensor_results[sensor.project_index][:readings] = query.entries
+      sensor_results[sensor.project_index][:readings] = query.entries.map { |reading| {time: reading[:time],value: reading[:value]} }
     end
     sensor_results
   end
