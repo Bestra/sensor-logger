@@ -37,7 +37,7 @@ group  :test do
   gem "factory_girl_rails", "~> 4.2.1"
   gem 'database_cleaner'
   gem 'pry'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
 
 # To use ActiveModel has_secure_password
