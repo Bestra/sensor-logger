@@ -6,8 +6,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    -if user_signed_in?
-      = link_to 'Sign out' , destroy_user_session_path, method: :delete
-    = yield
+    .container
+      = render :partial => 'layouts/messages'
+      -if user_signed_in?
+        = link_to 'Sign out' , destroy_user_session_path, method: :delete, class: 'pull-right'
+      = yield

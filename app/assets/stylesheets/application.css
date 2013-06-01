@@ -12,3 +12,9 @@
  *= require_tree .
  *= require bootstrap
  */
+
+a {
+  color: #000;
+  &:visited {
+    color: whitesmoke;
+  }
