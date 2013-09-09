@@ -23,10 +23,12 @@ class User
   validate :invite_code_is_correct
 
   def invite_code_is_correct
-    unless invite_code == 'goinvo'
+    valid_code = ENV['INVITE_CODE'] || 'code'
+    unless invite_code == valid_code
       self.errors.add :invite_code, 'You need a valid invite code to sign up'
     end
   end
+
 
   ## Confirmable
   # field :confirmation_token,   :type => String
