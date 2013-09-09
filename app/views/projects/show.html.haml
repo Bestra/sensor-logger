@@ -13,6 +13,7 @@
     %tr
       %td= sensor.project_index
       %td= sensor.name
+      %td= "#{sensor.sensor_readings.count} readings"
       %td= link_to 'Edit', edit_project_sensor_path(@project, sensor)
       %td= link_to 'Delete', project_sensor_path(@project, sensor), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
