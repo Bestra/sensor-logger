@@ -18,6 +18,13 @@
 
 %br
 
+%h3
+  Sample Post
+%p= @curl_post_sample
+%h3
+  Sample Query
+%p= @curl_query_sample
+
 = link_to 'New Sensor', new_project_sensor_path(@project.id)
 
 = link_to 'Edit', edit_project_path(@project)
