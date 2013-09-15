@@ -7,6 +7,10 @@ CsvLogger::Application.routes.draw do
 
   resources :tokens, only: [:create, :destroy]
 
+  controller :tokens do
+    get 'tokens/check'
+  end
+
   resource :readings, controller: 'sensor_readings', only: [:create, :destroy]
 
 
