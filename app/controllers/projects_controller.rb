@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @curl_post_sample =
       <<-EOF
         curl -H "Authorization: Token token=#{current_user.authentication_token}" -H "Content-Type: application/json" \
-          -X POST -d '{"sensorReadings":{"project_id":"#{@project.id}","sensors":[{"project_index":"1","readings":[{"time":"#{Time.now}"}]}]}}' #{root_url}readings
+          -X POST -d '{"project_id":"#{@project.id}","sensors":[{"project_index":"1","readings":[{"time":"#{Time.now}"}]}]}' #{root_url}readings
       EOF
 
     @curl_query_sample =

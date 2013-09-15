@@ -11,7 +11,7 @@ class SensorReadingsController < ApplicationController
   #          ]
   # }
   def create
-    json_params = params['sensorReadings']
+    json_params = params
     @project = Project.find json_params['project_id']
     sensors = json_params['sensors']
     added_readings = {}
