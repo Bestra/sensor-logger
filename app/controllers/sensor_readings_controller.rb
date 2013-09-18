@@ -16,11 +16,15 @@ class SensorReadingsController < ApplicationController
     @project = Project.find json_params['project_id']
     sensors = json_params['sensors']
     added_readings = {}
-    sensors.each do |sensor_param|
-      sensor = @project.find_or_create_sensor sensor_param['project_index']
-      added_readings[sensor.project_index] = SensorReading.add_readings sensor.id, sensor_param['readings']
+    begin
+      sensors.each do |sensor_param|
+        sensor = @project.find_or_create_sensor sensor_param['project_index']
+        added_readings[sensor.project_index] = SensorReading.add_readings sensor.id, sensor_param['readings']
+      end
+      render status: 200, json: added_readings
+    rescue ArgumentError
+      render status: 500, json: {error: "One of the readings was invalid"}
     end
-    render status: 200, json: added_readings
 
   end
 
