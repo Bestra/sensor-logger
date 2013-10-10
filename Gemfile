@@ -12,6 +12,9 @@ gem 'mongoid_rails_migrations', '~> 1.0.0'
 #no more webrick
 gem 'thin'
 
+#add new relic for monitoring
+gem 'newrelic_rpm'
+
 gem 'devise' , '~> 2.2.4'
 # Gems used only for assets and not required
 # in production environments by default.
