@@ -12,6 +12,9 @@ gem 'mongoid_rails_migrations', '~> 1.0.0'
 #no more webrick
 gem 'thin'
 
+#for heroku deployment use the rails_12factor gem.
+gem 'rails_12factor', group: :production
+
 #add new relic for monitoring
 gem 'newrelic_rpm'
 
